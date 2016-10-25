@@ -2,14 +2,14 @@
 <?php
 echo "* receive & compare user's answer * </br>";
 
-$studentScore = 0;
+$score = 0;
 
 //mock answer submissions
-$submittedAnswer = "a";
-$correctAnswer = "a";
+$submittedAnswer = "answer1";
+$correctAnswer = "answer1";
 
  if ($submittedAnswer == $correctAnswer){
-   $studentScore ++;
+   $score ++;
  }
-echo "Your Score is $studentScore";
+echo "Your Score is $score";
  ?>
