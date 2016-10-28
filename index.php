@@ -3,8 +3,8 @@
 include ("inc/render.php");
 include("inc/questions.php");
 
-$quizQuestion = Questions::selectQuestion(15);
-//var_dump($quizQuestion);
+//Will load question according to <a> selected from questionlink page
+//$quizQuestion = Questions::selectQuestion($nmbrLink);
 ?>
 
 <DOCTYPE html>
@@ -17,22 +17,29 @@ $quizQuestion = Questions::selectQuestion(15);
 
 </head>
 <body>
+
+  <div class="nav">
+        <ul>
+          <li class="home"><a href="index.php">home</a></li>
+          <li class="question-list"><a href="questionlink.php">view questions</a></li>
+          <li class="submit-question"><a href="newquestion.php">submit an exam question</a></li>
+        </ul>
+  </div>
+
   <header>
     <h1 class="main-header">GCS PRACTICE EXAM</h1>
   </header>
 
-<?php Render::render_single_question($quizQuestion); ?>
+  <div class="box" >
+    <h1> Start Exam  <a href='questionlink.php' class='question-link'> HERE</a>
+    </h1>
+  </div>
 
 
   <span class="enter-question">
-    <h2>Enter a New Exam Question!</h2>
-    <div class="add-question">
-
-    </div>
-
-    <?php Render::render_new_form(); ?>
+    <h2>SUBMIT YOUR OWN EXAM QUESTION <a class="enter-question-button" href="newquestion.php"
+      >HERE</a> </h2>
   </span>
-
 
 </body>
 </html>

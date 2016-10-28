@@ -54,12 +54,29 @@ class Render{
       </div>
      </div>
   <?php
- }
+} //close function render_single_question
+
+  public static function render_list_all(Array $arr){
+
+      $output =  "<ol>";
+      foreach($arr as $item) {
+
+          $id=$item["id"];
+          $output .=  "<li id=$id class='list-each'> <a href='take_exam.php?id=$id' >"
+
+          . $item["question"]
+          .  "</li></a>";
+      }
+      $output .= "</ol>";
+      return $output;
+
+  } //close function render_list_all
+
 
   public static function render_new_form() {
        ?>
             <form action="newquestion.php" method="POST">
-                <label for="question">Question:  
+                <label for="question" class="label-question">Question:
                     <textarea type="text" id="question" name="question" ></textarea>
                 </label></br>
                 <label for="answer1">Correct Answer:
@@ -68,7 +85,7 @@ class Render{
                 <label for="answer2">Alternate Answer 1:
                     <input type="text" id="answer2" name="answer2" />
                 </label></br>
-                <label for="answer3">Alt Answer Two:
+                <label for="answer3">Alternate Answer 2:
                     <input type="text" id="answer3" name="answer3" />
                 </label></br>
                 <label for="answer4">Alternate Answer 3:
@@ -77,6 +94,9 @@ class Render{
                 <label for="answer5">Alternate Answer 4:
                     <input type="text" id="answer5" name="answer5" />
                 </label></br>
+                <label for="id" value="optional: ID">optional ID:
+                    <input type="text" id="id" name="id" value="optional: ID" />
+                </label></br>
 
                 <input class="new-question" type="submit" name="submit" id="submit-2"  value="Enter Your Question"/>
             </form>
@@ -84,16 +104,16 @@ class Render{
     }
     public static function render_update_form($row){
       ?>
-      <!--we have our html form here where new user information will be entered-->
+
 <form action='updatequestion.php?id=<?php echo htmlspecialchars($row["id"]); ?>' method="POST" border='0'>
     <table class='table table-hover table-responsive table-bordered'>
         <tr>
             <td>Question</td>
-            <td><input type='text' name='question' value=" <?php echo $row["question"];?> " class='form-control' /></td>
+            <td><input type='text' size=150 name='question' value=" <?php echo $row["question"];?> " class='form-control'/> </td>
         </tr>
         <tr>
             <td>The Correct Answer:</td>
-            <td><input name='answer1' class='form-control' value="<?php echo $row["answer1"];?>" /></td>
+            <td><input type='text'  name='answer1' class='form-control' value="<?php echo $row["answer1"];?>"/></td>
         </tr>
         <tr>
             <td>Alternate Answer</td>
@@ -112,15 +132,18 @@ class Render{
             <td><input type='text' name='answer5' value="<?php echo $row["answer5"];?>" class='form-control' /></td>
         </tr>
         <tr>
-            <td></td>
-            <td>
-                <input type='submit' value='Save Changes' class='btn btn-primary' />
-                <a href='index.php' class='btn btn-danger'>Back to Question</a>
-            </td>
+          <td><td>
+            <input type='submit' value='Save Changes' class='btn btn-primary' action='index.php' />
+          </td></td>
         </tr>
+        <tr>
+          <td>
+            <a href='index.php' class='btn'> Back to Question </a>
+        </td>
+      </tr>
     </table>
-</form>
 
+</form>
 <?php
     } //close render update form
 

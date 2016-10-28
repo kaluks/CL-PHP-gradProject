@@ -21,7 +21,7 @@ class Questions {
    if($_POST){
       try{
           $query = "INSERT INTO `questions`
-          SET question=:question, answer1=:answer1, answer2=:answer2,
+          SET id=:id, question=:question, answer1=:answer1, answer2=:answer2,
               answer3=:answer3, answer4=:answer4, answer5=:answer5";
 
           // prepare query
@@ -36,6 +36,7 @@ class Questions {
           $answer5=htmlspecialchars(strip_tags($_POST['answer5']));
 
           // bind parameters
+          $stmt->bindParam(':id', $_POST["id"]);
           $stmt->bindParam(':question', $question);
           $stmt->bindParam(':answer1', $answer1);
           $stmt->bindParam(':answer2', $answer2);
@@ -45,7 +46,8 @@ class Questions {
 
           // Execute prepared query
           if($stmt->execute()){
-              echo "<div class='alert alert-success'>Your exam question was saved.</div>";
+              header("location:savedquestion.php");
+              //echo "<div class='alert alert-success'>Your exam question was saved.</div>";
           }else{
               echo "<div class='alert alert-danger'>Unable to save record.</div>";
           }
@@ -96,6 +98,7 @@ class Questions {
 
               if($stmt->execute()){
                   echo "<div>Your question was updated.</div>";
+                  header("location:questionlink.php");
               }else{
                   echo "<div>Unable to update your question.</div>";
               }
@@ -119,8 +122,8 @@ class Questions {
           $stmt->bindParam(1, $id);
 
           if($stmt->execute()){
-              header("Location:index.php");
-              echo "That question has been deleted from the database.";
+            header("Location:questionlink.php");
+
           }else{
               die('Unable to delete record.');
           }
@@ -143,14 +146,14 @@ class Questions {
       );
       $results->bindParam(1,$id,PDO::PARAM_INT);
       $results->execute();
-      
+
     } catch (Exception $e){
       echo "Unable to retrieve sample question.";
       exit;
     }
     $quizQuestion = $results->fetch(PDO::FETCH_ASSOC);
    return  $quizQuestion;
-  }
+ }  //close selectQuestion
 
    public function allQuestions(){
     include("connection.php");
@@ -159,8 +162,7 @@ class Questions {
         "SELECT id, question, answer1, answer2, answer3, answer4, answer5
         FROM questions"
         );
-      echo "Exam questions retrieved.";
-      exit;
+      //echo "Exam questions retrieved.";
     } catch (Exception $e){
       echo "Unable to retrieve exam questions";
       exit;
