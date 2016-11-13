@@ -10,7 +10,7 @@
   <?php
   include("inc/functions.php");
   echo "* receive & compare user's answer * </br>";
-	echo "<h2>Good job! There are no wrong answers on this exam.</h2>";
+	echo "<h2>Good job!</h2>";
 
   echo calculateScore("answer1");
  ?>

@@ -12,7 +12,7 @@ function calculateScore($submittedAnswer){
      $score ++;
      $score = $score/$score;
    }
-  echo "<h1>Your Score is $score</h1>";
+  echo "<h1>Your Score is 100%</h1>";
 }
 
 

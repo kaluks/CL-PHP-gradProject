@@ -30,4 +30,4 @@ if (isset($quizQuestion['question'])){
 } else { echo  "<h2> Sorry, cannot find question matching that ID.</h2>";
   }
   ?>
-  <a href='index.php' class='btn'>RETURN HOME </a>
+  

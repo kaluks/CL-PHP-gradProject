@@ -51,6 +51,7 @@ class Render{
         </div>
        </form>
       </fieldset>
+        <a href='index.php' class='btn-single'>RETURN HOME </a>
       </div>
      </div>
   <?php

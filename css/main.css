@@ -82,7 +82,13 @@ legend {
   cursor: default;
 }
 
+.btn {
+  margin-top: 10px;
+}
 
+.btn-single {
+  margin-top:-100px;
+}
 .main-header {
   float: center;
 }
