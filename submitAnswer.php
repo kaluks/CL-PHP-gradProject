@@ -17,7 +17,9 @@
 		  } else {
 					echo "<h2>SORRY, wrong answer.</h2>";
 		    }
-		}
+		} else {
+				echo "<h2> No answer selected.</h2>";
+		  }
   }
  ?>
  <div class="next-q">
