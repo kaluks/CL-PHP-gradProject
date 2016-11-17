@@ -9,17 +9,21 @@
 
   <?php
   include("inc/functions.php");
-  echo "* receive & compare user's answer * </br>";
-	echo "<h2>Good job!</h2>";
 
-  echo calculateScore("answer1");
+	if (isset($_POST['submit'])) {
+		if(isset($_POST['radio'])) {
+			if ($_POST['radio'] == "answer1"){
+				echo	"<h2>YOU ARE CORRECT! </h2>";
+		  } else {
+					echo "<h2>SORRY, wrong answer.</h2>";
+		    }
+		}
+  }
  ?>
  <div class="next-q">
-	<h2>CONTINUE WITH QUESTIONS <a href='questionlink.php' class='question-link'> HERE</a>
+	<h1>CONTINUE EXAM <a href='questionlink.php' class='question-link'> HERE</a></h1>
 	</h2>
 </div>
-
-
 
 </body>
 </html>

@@ -19,7 +19,7 @@ include("inc/questions.php");  ?>
     echo  Render::render_list_all(Questions::allQuestions()); ?>
 </span>
 
-<a href='index.php' class='btn'>RETURN HOME </a>
+<button class='btn'><a href='index.php' class='btn'>RETURN HOME </a></button>
 
 
 

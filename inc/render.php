@@ -13,33 +13,32 @@ class Render{
 
        <form  action="submitAnswer.php" id="form1" method="POST">
          <label>
-         <input type="radio" name="select" value="answer1" id="answer1" />
+         <input type="radio" name="radio" value="answer1" id="answer1" />
             <?php echo $quizQuestion["answer1"]; ?></br>
          </label>
 
          <label>
-         <input type="radio" name="select" value="answer2" id="answer2" />
+         <input type="radio" name="radio" value="answer2" id="answer2" />
            <?php echo $quizQuestion["answer2"]; ?></br>
          </label>
 
          <label>
-         <input type="radio" name="select" value="answer3" id="answer3" />
+         <input type="radio" name="radio" value="answer3" id="answer3" />
            <?php echo $quizQuestion["answer3"]; ?></br>
          </label>
 
          <label>
-         <input type="radio" name="select" value="answer4" id="answer4" />
+         <input type="radio" name="radio" value="answer4" id="answer4" />
            <?php echo $quizQuestion["answer4"]; ?></br>
          </label>
 
         <label>
-        <input type="radio" name="select" value="answer5" id="answer5" />
+        <input type="radio" name="radio" value="answer5" id="answer5" />
           <?php echo $quizQuestion["answer5"]; ?></br>
         </label>
 
         <input class="button" type="submit" name="submit" id="submit" value="Submit Answer" />
         <input type="hidden" name="id" value="form1" />
-
 
         <div class="update">
           <a class-"update" href="updateQuestion.php?id=<?php echo $quizQuestion["id"]; ?>"

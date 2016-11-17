@@ -8,18 +8,18 @@ include("inc/render.php");
        echo "QUESTION NOT ADDED. PLEASE FILL IN ALL FIELDS.";
 
     } elseif (Questions::createQuestion($_POST)){
-      //  header("location:index.php");
       }
  ?>
 
 <!DOCTYPE html/>
 <html>
 <head>
-    <title>Enter New Exam Question Form</title>
+    <title>Exam Question Form</title>
 	<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-  <h3>ENTER A NEW EXAM QUESTION <a href="index.php">&lt;&lt; Back</a></h3>
+  <h3>SUBMIT YOUR OWN EXAM QUESTION </h3>
+  <a href="index.php">&lt;&lt; Back</a>
 
   <?php Render::render_new_form(); ?>
 

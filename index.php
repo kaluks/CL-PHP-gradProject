@@ -28,6 +28,7 @@ include("inc/questions.php");
 
   <header>
     <h1 class="main-header">GCS PRACTICE EXAM</h1>
+    <h3 class="sub-header">practice for the geriatric clinical specialist exam<h3>
   </header>
 
   <div class="box" >
